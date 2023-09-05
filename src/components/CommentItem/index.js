@@ -23,16 +23,12 @@ const CommentItem = props => {
       </div>
       <p>{comment}</p>
       <div className="img-container">
-        <button
-          data-testId="delete"
-          type="button"
-          onClick={isLikeButtonClicked}
-        >
+        <button type="button" onClick={isLikeButtonClicked}>
           <img src={likeUrl} alt="like" />
           Like
         </button>
         <button
-          data-testId="delete"
+          data-testid="delete"
           type="button"
           onClick={isDeleteButtonClicked}
         >

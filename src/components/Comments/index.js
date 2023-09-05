@@ -23,15 +23,13 @@ class Comments extends Component {
     commentsList: [],
     name: '',
     comment: '',
-    time: '',
     count: 0,
-    isLike: false,
   }
 
   onAddComment = event => {
     event.preventDefault()
 
-    const {commentsList, name, comment, time, count} = this.state
+    const {commentsList, name, comment, count} = this.state
 
     const addCommentDetails = {
       id: uuidv4(),
@@ -67,7 +65,7 @@ class Comments extends Component {
   }
 
   isDeleClicked = id => {
-    const {commentsList, count} = this.state
+    const {count} = this.state
 
     if (count === 0) {
       this.setState({commentsList: '', count: 0})
@@ -82,17 +80,15 @@ class Comments extends Component {
   }
 
   onChangeName = event => {
-    const {name} = this.state
     this.setState({name: event.target.value})
   }
 
   onChangeComment = event => {
-    const {comment} = this.state
     this.setState({comment: event.target.value})
   }
 
   render() {
-    const {commentsList, count} = this.state
+    const {commentsList, count, name, comment} = this.state
     return (
       <div>
         <div className="form-container">
@@ -104,10 +100,12 @@ class Comments extends Component {
                 type="value"
                 onChange={this.onChangeName}
                 placeholder="Your name"
+                value={name}
               />
               <br />
               <textarea
                 type="value"
+                value={comment}
                 onChange={this.onChangeComment}
                 placeholder="Your Comment"
               />
