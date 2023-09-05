@@ -70,10 +70,13 @@ class Comments extends Component {
     const {commentsList, count} = this.state
 
     if (count === 0) {
-      this.setState({count: 0})
+      this.setState({commentsList: '', count: 0})
     } else {
-      this.setState(prevCount => ({
-        count: prevCount.count - 1,
+      this.setState(prevDetails => ({
+        commentsList: prevDetails.commentsList.filter(
+          eachDetail => eachDetail.id !== id,
+        ),
+        count: prevDetails.count - 1,
       }))
     }
   }
